@@ -84,7 +84,7 @@ Tx_FSM: process (rst_i, clk_i)
                 TxFSM <= Stop_tx;
             end if;
             TxBitCnt <= TxBitCnt - 1;
-            Tx_Reg <= '1' & TxReg(8 downto 1);
+            Tx_Reg <= '1' & Tx_Reg(8 downto 1);
         when Stop_Tx =>
             if TopTX = '1' then
                 TxFSM <= Idle;

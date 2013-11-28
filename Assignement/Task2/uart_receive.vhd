@@ -115,8 +115,8 @@ begin
     end process Rx_FSM;
 
 ClrDiv_o <= ClrDiv;
-RxRdyi <= '1' when state = Idle else '0';
-RxErr <= '1' when state = RxOVF else '0';
+RxRdyi <= '1' when RxFSM = Idle else '0';
+RxErr <= '1' when RxFSM = RxOVF else '0';
 
 end Behavioral;
 
