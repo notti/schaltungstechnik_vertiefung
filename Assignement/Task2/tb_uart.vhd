@@ -12,7 +12,7 @@ end tb_uart;
 architecture behav of tb_uart is
     signal rst_i : std_logic := '0';
     signal clk_i : std_logic := '0';
-    signal Din_i : std_logic_vector(7 downto 0) := "00000000";
+    signal Din_i : std_logic_vector(7 downto 0) := X"AA";
     signal rx_i  : std_logic := '0';
     signal tx_o  : std_logic := '0';
     signal ld_i  : std_logic := '0';
@@ -36,7 +36,7 @@ begin
         ld_i <= '1';
         wait for 1*333 ns;
         ld_i <= '0';
-        wait for 50*333 ns;
+        wait for 100000*333 ns;
         assert false report "done" severity failure;
         wait;
     end process;
