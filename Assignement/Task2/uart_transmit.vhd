@@ -80,11 +80,13 @@ Tx_FSM: process (rst_i, clk_i)
                 Tx_Reg <= '1' & RegDin & '0';
             end if;
         when Shift_Tx =>
-            if TopTX = '1' and TXBitCnt = 1 then
-                TxFSM <= Stop_tx;
+            if TopTX = '1' then
+                if TXBitCnt = 1 then
+                    TxFSM <= Stop_tx;
+                end if;
+                TxBitCnt <= TxBitCnt - 1;
+                Tx_Reg <= '1' & Tx_Reg(9 downto 1);
             end if;
-            TxBitCnt <= TxBitCnt - 1;
-            Tx_Reg <= '1' & Tx_Reg(8 downto 1);
         when Stop_Tx =>
             if TopTX = '1' then
                 TxFSM <= Idle;
