@@ -36,3 +36,4 @@ out_tracer.o : tb_package.o
 reset_gen.o : tb_package.o
 tb_master.o : tb_package.o
 shiftreg.o: tb_package.o
+tb_shiftreg.o: shiftreg.o
