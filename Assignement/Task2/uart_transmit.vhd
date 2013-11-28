@@ -68,13 +68,28 @@ Tx_FSM: process (rst_i, clk_i)
       
       case TxFSM is
         when Idle =>
-          
+            if Ld_i = '1' then
+                TxFSM <= Load_tx;
+                RegDin <= Din_i;
+                TxBusy_o <= '1';
+            end if;
         when Load_Tx =>
-         
+            if TopTX = '1' then
+                TxFSM <= Shift_tx;
+                TxBitCnt <= 10;
+                Tx_Reg <= '1' & RegDin & '0';
+            end if;
         when Shift_Tx =>
-          
+            if TopTX = '1' and TXBitCnt = 1 then
+                TxFSM <= Stop_tx;
+            end if;
+            TxBitCnt <= TxBitCnt - 1;
+            Tx_Reg <= '1' & TxReg(8 downto 1);
         when Stop_Tx =>
-         
+            if TopTX = '1' then
+                TxFSM <= Idle;
+                TxBusy_o <= '0';
+            end if;
         when others =>
           TxFSM <= Idle;
       end case;
