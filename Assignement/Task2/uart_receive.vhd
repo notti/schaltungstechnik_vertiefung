@@ -62,45 +62,61 @@ begin
 -- RECEIVE State Machine
 -- ------------------------
 
-Rx_FSM: process (rst_i, clk_i)
+    Rx_FSM: process (rst_i, clk_i)
+    begin
 
-  begin
-  
-    if rst_i='1' then
-    
-      Rx_Reg <= (others => '0');
-    
-      Dout_o <= (others => '0');
-    
-      RxBitCnt <= 0;
-    
-      RxFSM <= Idle;
-    
-      RxRdyi <= '0';
-    
-      ClrDiv <= '0';
-    
-      RxErr <= '0';
-  
-    elsif rising_edge(clk_i) then
-    
-        
-      case RxFSM is
-       
-        when Idle => 
- 
-        
-        when Start_Rx => 
-
-        when Edge_Rx => 
-
-        when Shift_Rx => 
-
-        when Stop_Rx => 
-
-        when RxOVF => 
+        if rst_i='1' then
+            Rx_Reg <= (others => '0');
+            Dout_o <= (others => '0');
+            RxBitCnt <= 0;
+            RxFSM <= Idle;
+            ClrDiv <= '0';
+        elsif rising_edge(clk_i) then
+            case RxFSM is
+                when Idle => 
+                    if Top16_i = '1' and Rx_i = '0' then
+                        RxFSM <= Start_Rx;
+                        ClrDiv <= '1';
+                        RxBitCnt <= 0;
+                    end if;
+                when Start_Rx =>
+                    if TopRx_i = '1' then
+                        if Rx_i = '1' then
+                            RxFSM <= RxOVF;
+                        else
+                            RxFSM <= Edge_Rx;
+                        end if;
+                    end if;
+                when Edge_Rx =>
+                    if TopRx_i = '1' then
+                        if RxBitCnt = 8 then
+                            RxFSM <= Stop_Rx;
+                        else
+                            RxFSM <= Shift_Rx;
+                        end if;
+                    end if;
+                when Shift_Rx => 
+                    if TopRx_i = '1' then
+                        RxFSM <= Edge_Rx;
+                        Rx_Reg(RxBitCnt) <= Rx_i;
+                        RxBitCnt <= RxBitCnt + 1;
+                    end if;
+                when Stop_Rx => 
+                    if TopRx_i = '1' then
+                        RxFSM <= Idle;
+                        Dout_o <= Rx_Reg;
+                    end if;
+                when RxOVF => 
+                    if Rx_i = '1' then
+                        RxFSM <= Idle;
+                    end if;
+            end case;
+        end if;
+    end process Rx_FSM;
 
 ClrDiv_o <= ClrDiv;
+RxRdyi <= '1' when state = Idle else '0';
+RxErr <= '1' when state = RxOVF else '0';
 
 end Behavioral;
 
