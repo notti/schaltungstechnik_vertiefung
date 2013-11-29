@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Fri Nov 29 16:53:41 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task4/tb_debounce.ghw"
+[dumpfile_mtime] "Fri Nov 29 16:52:04 2013"
+[dumpfile_size] 8987
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task4/debounce.gtkw"
+[timestart] 2760000000
+[size] 1440 835
+[pos] -1 -1
+*-30.000000 4887000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_debounce.
+[treeopen] top.tb_debounce.debounce.
+[sst_width] 224
+[signals_width] 199
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.tb_debounce.clk
+top.tb_debounce.io_i
+top.tb_debounce.io_o
+@800023
+#{top.tb_debounce.debounce.values[3:0]} top.tb_debounce.debounce.values[3] top.tb_debounce.debounce.values[2] top.tb_debounce.debounce.values[1] top.tb_debounce.debounce.values[0]
+@29
+top.tb_debounce.debounce.values[3]
+top.tb_debounce.debounce.values[2]
+top.tb_debounce.debounce.values[1]
+top.tb_debounce.debounce.values[0]
+@1001201
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
