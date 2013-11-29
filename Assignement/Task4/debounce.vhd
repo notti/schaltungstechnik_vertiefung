@@ -4,7 +4,6 @@ use IEEE.numeric_std.all;
 
 entity debounce is
 generic(
-	ACTIVE_LEVEL: std_logic := '1';
 	CNT			: integer := 1500000;	-- 30 ms at 50 MHz
 	CNT_WDT		: integer := 21
 );
@@ -16,11 +15,11 @@ port(
 end debounce;
 
 architecture behavioural of debounce is
-	signal scnt		: std_logic_vector(CNT_WDT-1 downto 0);
-    signal values   : std_logic_vector(3 downto 0);
+	signal scnt		: unsigned(CNT_WDT-1 downto 0) := (others => '0');
+    signal values   : std_logic_vector(3 downto 0) := (others => '0');
 begin
 
-io_out <= '1' when values = "1111" else
+io_out <= '1' when values(2 downto 0) = "111" else
           '0';
 
 shift_in: process(clk, scnt)
@@ -36,7 +35,7 @@ begin
         if scnt = CNT then
             scnt <= (others=>'0');
         else
-            scnt <= scnt + '1';
+            scnt <= scnt + 1;
         end if;
 	end if;
 end process;
