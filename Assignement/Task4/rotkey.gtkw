@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Fri Nov 29 17:28:26 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task4/tb_rotkey.ghw"
+[dumpfile_mtime] "Fri Nov 29 17:27:35 2013"
+[dumpfile_size] 23467
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task4/rotkey.gtkw"
+[timestart] 0
+[size] 1440 835
+[pos] -1 -1
+*-31.707787 3180000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_rotkey.
+[treeopen] top.tb_rotkey.rotkey.
+[treeopen] top.tb_rotkey.rotkey.deb_rotpush.
+[sst_width] 224
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.tb_rotkey.clk_50
+top.tb_rotkey.rota
+top.tb_rotkey.rotb
+top.tb_rotkey.rotpush
+top.tb_rotkey.rotrightevent
+top.tb_rotkey.rotleftevent
+top.tb_rotkey.rotpushevent
+[pattern_trace] 1
+[pattern_trace] 0

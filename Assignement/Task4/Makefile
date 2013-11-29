@@ -6,6 +6,7 @@ GHDLFLAGS = --ieee=synopsys -fexplicit -Wc,-m32 -Wa,--32 -Wl,-m32
 WORK = --work=work
 
 tb_debounce: tb_debounce.o
+tb_rotkey: tb_rotkey.o
 
 %: %.o
 	$(GHDL) -e $(GHDLFLAGS) $(LIBS) $(WORK) $@
@@ -29,3 +30,5 @@ vpath %.vhd ../vhdl:../../shiftreg/vhdl:.
 .SUFFIXES: .vhd .o .ghw
 
 tb_debounce.o: debounce.o
+tb_rotkey.o: rotkey.o
+rotkey.o: debounce.o
