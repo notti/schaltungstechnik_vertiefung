@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity rotKey is
     generic(
-	    CNT			: integer := 1500000;	-- 30 ms at 50 MHz
+	    CNT			: integer := 1500000	-- 30 ms at 50 MHz
     );
 	port(
 		clk_50        : in  std_logic;
@@ -65,7 +65,7 @@ begin
         clk_50 => clk_50,
         input => rotPush,
         output => open,
-        riseedge => rotPush_event,
+        riseedge => rotPushEvent,
         falledge => open 
     );
 
