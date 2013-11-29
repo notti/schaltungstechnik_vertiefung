@@ -8,30 +8,45 @@ generic(
 	CNT_WDT		: integer := 21
 );
 port(
-	io_in	: in std_logic;
-	io_out	: out std_logic;
-	clk		: in std_logic
+	clk_50	: in std_logic;
+    input    : in  std_logic;
+    output   : out std_logic;
+    riseedge : out std_logic;
+    falledge : out std_logic
 );
 end debounce;
 
 architecture behavioural of debounce is
 	signal scnt		: unsigned(CNT_WDT-1 downto 0) := (others => '0');
     signal values   : std_logic_vector(3 downto 0) := (others => '0');
+    signal io_out   : std_logic;
+    signal io_out_dly : std_logic;
 begin
 
 io_out <= '1' when values(2 downto 0) = "111" else
           '0';
 
-shift_in: process(clk, scnt)
+output <= io_out;
+riseedge <= io_out and (not io_out_dly);
+falledge <= (not io_out) and io_out_dly;
+
+io_dly: process(clk_50)
 begin
-    if rising_edge(clk) and scnt = CNT then
-        values <= io_in & values(3 downto 1);
+    if rising_edge(clk_50) then
+        io_out_dly <= io_out;
     end if;
 end process;
 
-delay_cnt : process(clk)
+shift_in: process(clk_50, scnt)
 begin
-	if rising_edge(clk) then
+    if rising_edge(clk_50) and scnt = CNT then
+        values <= input & values(3 downto 1);
+    end if;
+end process;
+
+delay_cnt : process(clk_50)
+begin
+	if rising_edge(clk_50) then
         if scnt = CNT then
             scnt <= (others=>'0');
         else

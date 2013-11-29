@@ -17,6 +17,8 @@ architecture behav of tb_debounce is
     signal noise : std_logic := '0';
     signal fixed : std_logic := '0';
     signal toggling : std_logic := '0';
+    signal riseedge : std_logic := '0';
+    signal falledge: std_logic := '0';
 
 begin
     
@@ -63,9 +65,11 @@ begin
 	    CNT	=> 15 -- 1500000 = 30 ms at 50 MHz; hier 300ns
     )
     port map(
-        clk => clk,
-        io_in => io_i,
-        io_out => io_o
+        clk_50 => clk,
+        input => io_i,
+        output => io_o,
+        riseedge => riseedge,
+        falledge => falledge 
     );
 
     
