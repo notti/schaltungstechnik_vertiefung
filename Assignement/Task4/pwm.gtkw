@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Fri Nov 29 18:01:17 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task4/tb_pwm.ghw"
+[dumpfile_mtime] "Fri Nov 29 18:00:37 2013"
+[dumpfile_size] 13500943
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task4/pwm.gtkw"
+[timestart] 0
+[size] 1440 835
+[pos] -1 -1
+*-41.484665 7760000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_pwm.
+[treeopen] top.tb_pwm.pwm.
+[sst_width] 224
+[signals_width] 194
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.tb_pwm.pwm.clk_10
+top.tb_pwm.pwm.rst
+@22
+#{top.tb_pwm.duty[7:0]} top.tb_pwm.duty[7] top.tb_pwm.duty[6] top.tb_pwm.duty[5] top.tb_pwm.duty[4] top.tb_pwm.duty[3] top.tb_pwm.duty[2] top.tb_pwm.duty[1] top.tb_pwm.duty[0]
+@28
+top.tb_pwm.pwm.outsig
+@8022
+#{top.tb_pwm.pwm.pwm_cnt[7:0]} top.tb_pwm.pwm.pwm_cnt[7] top.tb_pwm.pwm.pwm_cnt[6] top.tb_pwm.pwm.pwm_cnt[5] top.tb_pwm.pwm.pwm_cnt[4] top.tb_pwm.pwm.pwm_cnt[3] top.tb_pwm.pwm.pwm_cnt[2] top.tb_pwm.pwm.pwm_cnt[1] top.tb_pwm.pwm.pwm_cnt[0]
+[pattern_trace] 1
+[pattern_trace] 0

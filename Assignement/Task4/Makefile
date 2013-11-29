@@ -7,6 +7,7 @@ WORK = --work=work
 
 tb_debounce: tb_debounce.o
 tb_rotkey: tb_rotkey.o
+tb_pwm: tb_pwm.o
 
 %: %.o
 	$(GHDL) -e $(GHDLFLAGS) $(LIBS) $(WORK) $@
@@ -31,4 +32,5 @@ vpath %.vhd ../vhdl:../../shiftreg/vhdl:.
 
 tb_debounce.o: debounce.o
 tb_rotkey.o: rotkey.o
+tb_pwm.o: pwm.o
 rotkey.o: debounce.o
