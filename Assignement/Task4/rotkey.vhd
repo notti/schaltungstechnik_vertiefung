@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity rotKey is
+    generic(
+	    CNT			: integer := 1500000;	-- 30 ms at 50 MHz
+    );
 	port(
 		clk_50        : in  std_logic;
 
@@ -26,11 +29,50 @@ architecture RTL of rotKey is
 			 falledge : out std_logic);
 	end component debounce;
 
--- Implement a process here to cover the singal from the rotatory encoder
-
--- Instantiate needed debounce modules
--- Analyze the input signals according to the specification
-
+    signal rotA_d : std_logic;
+    signal rotB_d : std_logic;
+    signal rotA_rise : std_logic;
+    signal rotA_fall : std_logic;
+    signal rotB_rise : std_logic;
+    signal rotB_fall : std_logic;
 begin
-	
+    deb_rotA: entity work.debounce
+    generic map(
+        CNT => CNT)
+    port map(
+        clk_50 => clk_50,
+        input => rotA,
+        output => rotA_d,
+        riseedge => rotA_rise,
+        falledge => rotA_fall 
+    );
+
+    deb_rotB: entity work.debounce
+    generic map(
+        CNT => CNT)
+    port map(
+        clk_50 => clk_50,
+        input => rotB,
+        output => rotB_d,
+        riseedge => rotB_rise,
+        falledge => rotB_fall 
+    );
+
+    deb_rotPush: entity work.debounce
+    generic map(
+        CNT => CNT)
+    port map(
+        clk_50 => clk_50,
+        input => rotPush,
+        output => open,
+        riseedge => rotPush_event,
+        falledge => open 
+    );
+
+    rotRightEvent <= '1' when rotA_rise = '1' and rotB_d = '0' else
+                     '0';
+
+    rotLeftEvent <= '1' when rotB_rise = '1' and rotA_d = '0' else
+                    '0';
+
 end architecture RTL;
