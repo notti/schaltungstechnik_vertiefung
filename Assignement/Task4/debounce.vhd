@@ -1,24 +1,44 @@
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity debounce is
-	port(
-		clk_50      : in  std_logic;
-		input    : in  std_logic;
-		output   : out std_logic:='0';
-		riseedge : out std_logic:='0';
-		falledge : out std_logic:='0');
-end entity debounce;
+generic(
+	ACTIVE_LEVEL: std_logic := '1';
+	CNT			: integer := 1500000;	-- 30 ms at 50 MHz
+	CNT_WDT		: integer := 21
+);
+port(
+	io_in	: in std_logic;
+	io_out	: out std_logic;
+	clk		: in std_logic
+);
+end debounce;
 
-architecture RTL of debounce is
+architecture behavioural of debounce is
+	signal scnt		: std_logic_vector(CNT_WDT-1 downto 0);
+    signal values   : std_logic_vector(3 downto 0);
 begin
-	
--- Implement the debounce algorithm here !
 
--- Use a counter register to realize the sampling period
--- Shift the covered values into a register
--- according to the sampled logical levels manipulate the output signals of the module
+io_out <= '1' when values = "1111" else
+          '0';
 
-end architecture RTL;
+shift_in: process(clk, scnt)
+begin
+    if rising_edge(clk) and scnt = CNT then
+        values <= io_in & values(3 downto 1);
+    end if;
+end process;
 
+delay_cnt : process(clk)
+begin
+	if rising_edge(clk) then
+        if scnt = CNT then
+            scnt <= (others=>'0');
+        else
+            scnt <= scnt + '1';
+        end if;
+	end if;
+end process;
 
+end behavioural;
