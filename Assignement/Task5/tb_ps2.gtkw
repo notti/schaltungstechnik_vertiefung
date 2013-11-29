@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Fri Nov 29 19:15:27 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task5/tb_ps2.ghw"
+[dumpfile_mtime] "Fri Nov 29 19:14:20 2013"
+[dumpfile_size] 5948839
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task5/tb_ps2.gtkw"
+[timestart] 0
+[size] 1440 835
+[pos] -1 -1
+*-40.489388 6010000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_ps2.
+[sst_width] 224
+[signals_width] 262
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.tb_ps2.clk
+top.tb_ps2.rst
+top.tb_ps2.datafetched
+top.tb_ps2.dataready
+top.tb_ps2.ps2clk
+top.tb_ps2.ps2data
+@c00022
+#{top.tb_ps2.rec.rxdata[7:0]} top.tb_ps2.rec.rxdata[7] top.tb_ps2.rec.rxdata[6] top.tb_ps2.rec.rxdata[5] top.tb_ps2.rec.rxdata[4] top.tb_ps2.rec.rxdata[3] top.tb_ps2.rec.rxdata[2] top.tb_ps2.rec.rxdata[1] top.tb_ps2.rec.rxdata[0]
+@28
+top.tb_ps2.rec.rxdata[7]
+top.tb_ps2.rec.rxdata[6]
+top.tb_ps2.rec.rxdata[5]
+top.tb_ps2.rec.rxdata[4]
+top.tb_ps2.rec.rxdata[3]
+top.tb_ps2.rec.rxdata[2]
+top.tb_ps2.rec.rxdata[1]
+top.tb_ps2.rec.rxdata[0]
+@1401200
+-group_end
+@28
+top.tb_ps2.rec.fsm
+[pattern_trace] 1
+[pattern_trace] 0

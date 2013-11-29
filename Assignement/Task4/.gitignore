@@ -4,3 +4,4 @@ prereq
 *.cf
 tb_*
 !*vhd
+!*gtkw

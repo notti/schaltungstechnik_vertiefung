@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Thu Nov 28 16:13:12 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task2/tb_uart.ghw"
+[dumpfile_mtime] "Thu Nov 28 16:12:14 2013"
+[dumpfile_size] 446477
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task2/tb_uart.gtkw"
+[timestart] 2850000000000
+[size] 1440 835
+[pos] -1 -1
+*-40.000000 6691302000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_uart.
+[treeopen] top.tb_uart.uart_i.
+[treeopen] top.tb_uart.uart_i.i_uart_rec.
+[treeopen] top.tb_uart.uart_i.i_uart_tra.
+[sst_width] 224
+[signals_width] 236
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.tb_uart.uart_i.clk_i
+top.tb_uart.uart_i.rst_i
+top.tb_uart.uart_i.ld_i
+top.tb_uart.uart_i.tx_o
+#{top.tb_uart.uart_i.din_i[7:0]} top.tb_uart.uart_i.din_i[7] top.tb_uart.uart_i.din_i[6] top.tb_uart.uart_i.din_i[5] top.tb_uart.uart_i.din_i[4] top.tb_uart.uart_i.din_i[3] top.tb_uart.uart_i.din_i[2] top.tb_uart.uart_i.din_i[1] top.tb_uart.uart_i.din_i[0]
+top.tb_uart.uart_i.i_uart_tra.txfsm
+@29
+top.tb_uart.uart_i.i_uart_tra.ld_i
+@28
+top.tb_uart.uart_i.i_uart_tra.toptx
+top.tb_uart.uart_i.s_toptx
+top.tb_uart.uart_i.i_uart_tra.txbitcnt
+#{top.tb_uart.uart_i.i_uart_tra.tx_reg[9:0]} top.tb_uart.uart_i.i_uart_tra.tx_reg[9] top.tb_uart.uart_i.i_uart_tra.tx_reg[8] top.tb_uart.uart_i.i_uart_tra.tx_reg[7] top.tb_uart.uart_i.i_uart_tra.tx_reg[6] top.tb_uart.uart_i.i_uart_tra.tx_reg[5] top.tb_uart.uart_i.i_uart_tra.tx_reg[4] top.tb_uart.uart_i.i_uart_tra.tx_reg[3] top.tb_uart.uart_i.i_uart_tra.tx_reg[2] top.tb_uart.uart_i.i_uart_tra.tx_reg[1] top.tb_uart.uart_i.i_uart_tra.tx_reg[0]
+@200
+-
+-reciever
+@28
+top.tb_uart.uart_i.i_uart_rec.rxerr
+top.tb_uart.uart_i.i_uart_rec.rxrdyi
+@22
+#{top.tb_uart.uart_i.i_uart_rec.dout_o[7:0]} top.tb_uart.uart_i.i_uart_rec.dout_o[7] top.tb_uart.uart_i.i_uart_rec.dout_o[6] top.tb_uart.uart_i.i_uart_rec.dout_o[5] top.tb_uart.uart_i.i_uart_rec.dout_o[4] top.tb_uart.uart_i.i_uart_rec.dout_o[3] top.tb_uart.uart_i.i_uart_rec.dout_o[2] top.tb_uart.uart_i.i_uart_rec.dout_o[1] top.tb_uart.uart_i.i_uart_rec.dout_o[0]
+@28
+top.tb_uart.uart_i.i_uart_rec.rxfsm
+top.tb_uart.uart_i.i_uart_rec.toprx_i
+top.tb_uart.uart_i.i_uart_rec.clrdiv_o
+[pattern_trace] 1
+[pattern_trace] 0

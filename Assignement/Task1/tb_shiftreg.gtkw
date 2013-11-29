@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Thu Nov 28 16:13:35 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task1/tb_shiftreg.ghw"
+[dumpfile_mtime] "Thu Nov 28 14:25:52 2013"
+[dumpfile_size] 941
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task1/tb_shiftreg.gtkw"
+[timestart] 18000000
+[size] 1440 835
+[pos] -14 -145
+*-25.000000 158200000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_shiftreg.
+[treeopen] top.tb_shiftreg.shiftreg_i.
+[sst_width] 224
+[signals_width] 251
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.tb_shiftreg.shiftreg_i.rightin
+top.tb_shiftreg.shiftreg_i.leftin
+top.tb_shiftreg.shiftreg_i.rightshift
+@29
+top.tb_shiftreg.shiftreg_i.leftshift
+@28
+top.tb_shiftreg.shiftreg_i.clk
+top.tb_shiftreg.shiftreg_i.rst
+#{top.tb_shiftreg.shiftreg_i.regout[7:0]} top.tb_shiftreg.shiftreg_i.regout[7] top.tb_shiftreg.shiftreg_i.regout[6] top.tb_shiftreg.shiftreg_i.regout[5] top.tb_shiftreg.shiftreg_i.regout[4] top.tb_shiftreg.shiftreg_i.regout[3] top.tb_shiftreg.shiftreg_i.regout[2] top.tb_shiftreg.shiftreg_i.regout[1] top.tb_shiftreg.shiftreg_i.regout[0]
+[pattern_trace] 1
+[pattern_trace] 0
