@@ -21,7 +21,7 @@ architecture Structural of shiftreg is
     signal value : std_logic_vector(7 downto 0);
 begin
 
-    assert not (leftIn = '1' and rightIn = '1') report "can't shift both directions!" severity note;
+    assert not (leftShift = '1' and rightShift = '1') report "can't shift both directions!" severity note;
 
     shift: process(clk, rst)
     begin
