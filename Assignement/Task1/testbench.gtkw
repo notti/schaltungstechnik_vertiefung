@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.3.52 (w)1999-2013 BSI
+[*] Wed Dec  4 09:38:00 2013
+[*]
+[dumpfile] "/home/notti/uni/schaltungstech_vert/Assignement/Task1/testbench.ghw"
+[dumpfile_mtime] "Wed Dec  4 09:32:45 2013"
+[dumpfile_size] 4813
+[savefile] "/home/notti/uni/schaltungstech_vert/Assignement/Task1/testbench.gtkw"
+[timestart] 456200000
+[size] 1440 835
+[pos] -1 -1
+*-26.421690 685800000 1000000 51000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.testbench.
+[treeopen] top.testbench.i_shiftreg.
+[sst_width] 224
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+top.testbench.i_shiftreg.clk
+top.testbench.i_shiftreg.rst
+top.testbench.i_shiftreg.leftshift
+top.testbench.i_shiftreg.rightshift
+top.testbench.i_shiftreg.leftin
+top.testbench.i_shiftreg.rightin
+@c00023
+#{top.testbench.i_shiftreg.value[7:0]} top.testbench.i_shiftreg.value[7] top.testbench.i_shiftreg.value[6] top.testbench.i_shiftreg.value[5] top.testbench.i_shiftreg.value[4] top.testbench.i_shiftreg.value[3] top.testbench.i_shiftreg.value[2] top.testbench.i_shiftreg.value[1] top.testbench.i_shiftreg.value[0]
+@28
+top.testbench.i_shiftreg.value[7]
+top.testbench.i_shiftreg.value[6]
+top.testbench.i_shiftreg.value[5]
+top.testbench.i_shiftreg.value[4]
+top.testbench.i_shiftreg.value[3]
+top.testbench.i_shiftreg.value[2]
+top.testbench.i_shiftreg.value[1]
+top.testbench.i_shiftreg.value[0]
+@1401201
+-group_end
+@28
+top.testbench.s_enable
+top.testbench.s_clk
+[pattern_trace] 1
+[pattern_trace] 0

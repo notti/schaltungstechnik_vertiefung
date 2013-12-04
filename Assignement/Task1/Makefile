@@ -28,6 +28,7 @@ vpath %.vhd ../vhdl:../../shiftreg/vhdl:.
 .SUFFIXES:
 .SUFFIXES: .vhd .o .ghw
 
+testbench.ghw: testcase/stimulate.txt
 testbench.o: bit_in.o  clock_gen.o  enable.o  out_tracer.o  reset_gen.o  tb_master.o  tb_package.o shiftreg.o
 bit_in.o: tb_package.o
 clock_gen.o: tb_package.o
