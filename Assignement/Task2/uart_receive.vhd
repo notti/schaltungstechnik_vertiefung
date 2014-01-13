@@ -37,6 +37,7 @@ entity uart_receive is
 		  TopRx_i : in std_logic;
 		  Dout_o  : out std_logic_vector(7 downto 0);
 		  ClrDiv_o: out std_logic;
+          Recvd   : out std_logic;
 		  Rx_i    : in std_logic
 	);   
 
@@ -69,10 +70,12 @@ begin
             Rx_Reg <= (others => '0');
             Dout_o <= (others => '0');
             RxBitCnt <= 0;
+            Recvd <= '0';
             RxFSM <= Idle;
         elsif rising_edge(clk_i) then
             case RxFSM is
                 when Idle => 
+                    Recvd <= '0';
                     if Top16_i = '1' and Rx_i = '0' then
                         RxFSM <= Start_Rx;
                         RxBitCnt <= 0;
@@ -103,6 +106,7 @@ begin
                     if TopRx_i = '1' then
                         RxFSM <= Idle;
                         Dout_o <= Rx_Reg;
+                        Recvd <= '1';
                     end if;
                 when RxOVF => 
                     if Rx_i = '1' then

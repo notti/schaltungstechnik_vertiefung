@@ -33,10 +33,8 @@ entity uart_top_shell is
   port(
         rst_i : in std_logic;
 		  clk_i : in std_logic;
-		  Din_i : in std_logic_vector(7 downto 0);
 		  rx_i  : in std_logic;
-		  tx_o  : out std_logic;
-		  ld_i  : in std_logic
+		  tx_o  : out std_logic
 	);
 
 end uart_top_shell;
@@ -62,6 +60,7 @@ component uart_receive is
 		  Top16_i : std_logic;
 		  TopRx_i : std_logic;
 		  Dout_o  : out std_logic_vector(7 downto 0);
+          Recvd   : out std_logic;
 		  Rx_i    : in std_logic
 		    );
 end component uart_receive;
@@ -83,12 +82,9 @@ signal s_toprx : std_logic;
 signal s_toptx : std_logic;
 signal s_top16 : std_logic;
 signal s_dout  : std_logic_vector(7 downto 0);
-signal s_rx    : std_logic;
-signal s_din   : std_logic_vector(7 downto 0);
-signal s_tx    : std_logic;
 signal s_txbusy : std_logic;
-signal s_ld    : std_logic;
 signal s_clr_div : std_logic;
+signal s_recvd  : std_logic;
 
 begin
 
@@ -111,7 +107,8 @@ port map (
 		    Top16_i => s_top16,
 		    TopRx_i => s_toprx,
 			 Dout_o => s_dout,
-			 Rx_i => s_rx
+             Recvd => s_recvd,
+			 Rx_i => rx_i
 			 );
 
 i_uart_tra : uart_transmit
@@ -119,16 +116,11 @@ port map (
           rst_i => rst_i,
 			 clk_i => clk_i,
 			 TopTX => s_toptx,
-			 Din_i => s_din,
-			 Tx_o  => s_tx,
+			 Din_i => s_dout,
+			 Tx_o  => tx_o,
 			 TxBusy_o => s_txbusy,
-			 LD_i => s_ld
+			 LD_i => s_recvd
 			 );
-
-tx_o <= s_tx;
-s_din <= Din_i;
-s_rx  <= rx_i;
-s_ld  <= '1';
 
 end Behavioral;
 
