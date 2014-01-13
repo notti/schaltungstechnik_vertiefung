@@ -2,6 +2,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library work;
+
 entity ps2Receiver is
     generic(
         TIMEOUT  :integer := 5000 -- = 100us at 50Mhz
