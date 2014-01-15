@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity rotKey is
     generic(
-	    CNT			: integer := 1500000	-- 30 ms at 50 MHz
+	    CNT			: integer := 5000	-- 30 ms at 50 MHz
     );
 	port(
 		clk_50        : in  std_logic;

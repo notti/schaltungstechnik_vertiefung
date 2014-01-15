@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
 library work;
 
@@ -22,11 +23,15 @@ architecture RTL of toplevel is
 
     signal rxData : std_logic_vector(7 downto 0);
     signal asciiData : std_logic_vector(7 downto 0);
+    signal asciiDataBig : std_logic_vector(7 downto 0);
     signal dataReady : std_logic;
     signal dataReadydly : std_logic;
     signal dataFetched : std_logic;
+    signal released : std_logic;
     signal line_buffer : std_logic_vector(255 downto 0);
     signal pos : natural;
+    signal shifta : std_logic;
+    signal shiftb : std_logic;
 
 begin
 
@@ -50,24 +55,44 @@ begin
         lcd_rs       => lcd_rs,
         lcd_rw       => lcd_rw,
         lcd_db       => lcd_db(7 downto 4),
-        line1_buffer => line_buffer(127 downto 0),
-        line2_buffer => line_buffer(255 downto 128));
+        line1_buffer => line_buffer(255 downto 128),
+        line2_buffer => line_buffer(127 downto 0));
 
     lcd_db(3 downto 0) <= (others => '1');
 
     pos_counter: process(clk, rst)
     begin
         if rst = '1' then
-            pos <= 0;
-            line_buffer <= (others => '0');
+            pos <= 31;
+            released <= '0';
+            line_buffer <= X"2020202020202020202020202020202020202020202020202020202020202020";
+            shifta <= '0';
+            shiftb <= '0';
         elsif rising_edge(clk) then
             dataReadydly <= dataReady;
             if dataReady = '1' and dataReadydly = '0' then
-                line_buffer((pos*8)+7 downto pos*8) <= asciiData;
-                if pos = 32 then
-                    pos <= 0;
+                if rxData = X"F0" then
+                      released <= '1';
+                elsif released = '1' then
+                    if rxData = X"12" then
+                        shifta <= '0';
+                    elsif rxData = X"59" then
+                        shiftb <= '0';
+                    end if;
+                    released <= '0';
                 else
-                    pos <= pos + 1;
+                    if rxData = X"12" then
+                        shifta <= '1';
+                    elsif rxData = X"59" then
+                        shiftb <= '1';
+                    else                        
+                        line_buffer((pos*8)+7 downto pos*8) <= asciiDataBig;
+                        if pos = 0 then
+                            pos <= 32;
+                        else
+                            pos <= pos - 1;
+                        end if;
+                    end if;
                 end if;
             end if;
         end if;
@@ -111,5 +136,9 @@ begin
         X"37" when rxData = X"3D" else
         X"38" when rxData = X"3E" else
         X"39" when rxData = X"46" else
+        X"20" when rxData = X"29" else
         X"FF";
+        
+        asciiDataBig <= asciiData - X"20" when shifta = '1' or shiftb = '1' else
+                        asciiData;
 end architecture RTL;
